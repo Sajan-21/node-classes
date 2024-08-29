@@ -3,9 +3,27 @@ const port = 3000;
 const url = require('url');
 const fs = require('fs');
 const querystring = require('querystring');
+const {MongoClient} = require('mongodb');
 
 
 const server = http.createServer((req, res) => {
+
+    const client = new MongoClient('mongodb://localhost:27017');
+
+    async function connect(){
+        try {
+
+            await client.connect();
+            console.log('database connected');
+            
+        } catch (error) {
+
+            console.log('error : ',error);
+            
+        }
+    }
+
+    connect();
 
     const req_url = req.url;
     console.log("req_url : ",req_url);
@@ -32,6 +50,10 @@ const server = http.createServer((req, res) => {
         });
 
         req.on('end',() => {
+
+            let db = client.db("dms");
+            let collection = db.collection("users");
+
             console.log('body : ',body);
             let datas = querystring.parse(body);
             console.log("datas : ",datas);
@@ -39,6 +61,21 @@ const server = http.createServer((req, res) => {
             console.log("name : ",datas.name);
             console.log("email : ",datas.email);
             console.log("password : ",datas.password);
+
+            collection.insertOne({
+                name : datas.name,
+                email : datas.email,
+                password : datas.password
+            }).then((message) => {
+                console.log('message : ',message);
+                res.writeHead(201, {'Content-Type' : "text/plain"});
+                res.end("users created succesfully");
+            }).catch((error) => {
+                console.log("error : ",error);
+                res.writeHead(400, {'Content-Type' : 'text/plain'});
+                res.end(error.message ? error.message : "user creation failed");
+            })
+
         });
 
     }

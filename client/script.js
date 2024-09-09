@@ -47,6 +47,8 @@ async function addUser (event) {
             },
             body : json_data
         });
+
+        alert("user created successfully");
         
         if(response.status === 400){
             warning = "email already exists";
@@ -224,6 +226,8 @@ async function updateUser (event) {
             },
             body : editeddata
         });
+
+        alert("user updated succesfully");
 
         if(response.status === 400){
             warning = "email already exists";

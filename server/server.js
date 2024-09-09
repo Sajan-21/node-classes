@@ -24,7 +24,7 @@ const server = http.createServer(async (req, res) => {
 
     connect();
 
-    let db = client.db("usersDB");
+    let db = client.db("dms");
     let collection = db.collection("users");
 
     const req_url = req.url;

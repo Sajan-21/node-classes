@@ -16,28 +16,42 @@
             integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
             crossorigin="anonymous"
         />
-        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="single.css">
     </head>
 
-    <body>
+    <body onload="viewOne()">
         <header>
             <!-- place navbar here -->
         </header>
         <main>
 
-            <h1 class="text-center p-5">USER MANAGEMENT APPLICATION</h1>
-            
-            <nav class="bg-primary d-flex justify-content-center gap-5 my-5 p-5">
-                <a href="addUser.html"><button class="btn bg-light text-dark" id="addData">add data</button></a>
-                <a href="viewData.html"><button class="btn bg-light text-dark" id="viewData">view data</button></a>
-            </nav>
+            <h1 class="text-center p-5">USER'S PROFILE</h1>
 
+            <div id="singleUser" class="d-flex flex-column justify-content-center align-items-center gap-3 mb-5">
+                
+            </div>
+            <div id="editUser">
+
+                <h2 class="text-center mt-2 p-2">ENTER USER'S NEW DATA</h2>
+
+                <form onsubmit="updateUser(event)" class="container p-5 d-flex flex-column gap-3 justify-content-center">
+                    <label for="newname" class="label">enter user's new name or leave</label>
+                    <input type="text" name="newname" placeholder="name" id="newname">
+                    <label for="newemail" class="label">enter user's new email or leave</label>
+                    <input type="email" name="newemail" id="newemail">
+                    <label for="newpassword" class="label">reset user's password or leave</label>
+                    <input type="password" name="newpassword" id="newpassword">
+                    <input type="submit" class="btn bg-primary text-light rounded-pill btn-custom fs-4">
+                    <label for="" id="editwarningmessage" class="text-danger text-center"></label>
+                </form>
+
+            </div>
         </main>
         <footer>
             <!-- place footer here -->
         </footer>
         <!-- Bootstrap JavaScript Libraries -->
-
+         <script src="script.js"></script>
         <script
             src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
             integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"

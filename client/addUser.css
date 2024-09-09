@@ -1,0 +1,16 @@
+#name,#email,#password,#namelabel,#emaillabel,#passwordlabel{
+    width: 50%;
+    margin: auto;
+}
+#namelabel,#emaillabel,#passwordlabel{
+    color: red;
+}
+#warningMessage{
+    text-align: center;
+    color: red;
+}
+
+.submit-btn{
+    width: 20%;
+    margin: auto;
+}

@@ -1,0 +1,11 @@
+.btn-custom{
+width: 20%;
+margin: auto;
+}
+#newname,#newemail,#newpassword{
+    width: 60%;
+    margin: auto;
+}
+.label{
+    margin: auto;
+}

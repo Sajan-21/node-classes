@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
     <head>
-        <title>Title</title>
+        <title>add user</title>
         <!-- Required meta tags -->
         <meta charset="utf-8" />
         <meta
@@ -16,7 +16,7 @@
             integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
             crossorigin="anonymous"
         />
-        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="addUser.css">
     </head>
 
     <body>
@@ -25,18 +25,27 @@
         </header>
         <main>
 
-            <h1 class="text-center p-5">USER MANAGEMENT APPLICATION</h1>
-            
-            <nav class="bg-primary d-flex justify-content-center gap-5 my-5 p-5">
-                <a href="addUser.html"><button class="btn bg-light text-dark" id="addData">add data</button></a>
-                <a href="viewData.html"><button class="btn bg-light text-dark" id="viewData">view data</button></a>
-            </nav>
+            <div class="p-5">
+                <h1 class="text-center">ADD USER DATA HERE</h1>
+            </div>
 
+            <form onsubmit="addUser(event)" class="form-custom p-5 d-flex flex-column gap-3 justify-content-center">
+                
+                <input type="text" name="name" placeholder="Enter user name" id="name">
+                <p id="namelabel"></p>
+                <input type="email" name="email" id="email" placeholder="Enter user email">
+                <p id="emaillabel"></p>
+                <input type="password" name="password" id="password" placeholder="Enter user password">
+                <p id="password"></p>
+                <input type="submit" class="submit-btn">
+                <p id="warningMessage"></p>
+            </form>
         </main>
         <footer>
             <!-- place footer here -->
         </footer>
         <!-- Bootstrap JavaScript Libraries -->
+        <script src="script.js"></script>
 
         <script
             src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
